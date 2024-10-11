@@ -1,25 +1,22 @@
 {
   "files": {
-    "main.css": "/porto-yithro-revamp/static/css/main.ebb5daa5.css",
-    "main.js": "/porto-yithro-revamp/static/js/main.18dd7c58.js",
+    "main.css": "/porto-yithro-revamp/static/css/main.fc62572e.css",
+    "main.js": "/porto-yithro-revamp/static/js/main.d69b6e33.js",
     "static/js/453.32e10078.chunk.js": "/porto-yithro-revamp/static/js/453.32e10078.chunk.js",
-    "static/media/BTT1-3.png": "/porto-yithro-revamp/static/media/BTT1-3.4ab931b492b5407043bb.png",
-    "static/media/BTT1-2.png": "/porto-yithro-revamp/static/media/BTT1-2.6d55be5f25bac04d26c5.png",
-    "static/media/BTT1-1.png": "/porto-yithro-revamp/static/media/BTT1-1.480d4bb04b91feb5ef4c.png",
-    "static/media/BTT-2.png": "/porto-yithro-revamp/static/media/BTT-2.7bd3299bf96a6e3ca762.png",
-    "static/media/BTT2-2.png": "/porto-yithro-revamp/static/media/BTT2-2.2b619f2305c0f6320015.png",
     "static/media/profpic.png": "/porto-yithro-revamp/static/media/profpic.678e1a17ba7c83a85c01.png",
-    "static/media/BTT-1.png": "/porto-yithro-revamp/static/media/BTT-1.cde4810431357cef7090.png",
-    "static/media/BTT2-1.png": "/porto-yithro-revamp/static/media/BTT2-1.9e5aa8c76f520b7c38ec.png",
-    "static/media/CSR-2.png": "/porto-yithro-revamp/static/media/CSR-2.7e9bf4d92b9fb0146fe3.png",
-    "static/media/CSR-1.png": "/porto-yithro-revamp/static/media/CSR-1.67a73df6086b6a57ec3b.png",
+    "static/media/Leadership.png": "/porto-yithro-revamp/static/media/Leadership.5044be60b1197477473d.png",
+    "static/media/Technical.png": "/porto-yithro-revamp/static/media/Technical.ce8c144418a369d45aab.png",
+    "static/media/Language.png": "/porto-yithro-revamp/static/media/Language.dadd7636071c0932c95e.png",
+    "static/media/Thinking.png": "/porto-yithro-revamp/static/media/Thinking.592946a397b92805d873.png",
+    "static/media/Communication.png": "/porto-yithro-revamp/static/media/Communication.5cdabbaf96a40f1c2b7a.png",
+    "static/media/Organizing.png": "/porto-yithro-revamp/static/media/Organizing.20c71a3463142a4148de.png",
     "index.html": "/porto-yithro-revamp/index.html",
-    "main.ebb5daa5.css.map": "/porto-yithro-revamp/static/css/main.ebb5daa5.css.map",
-    "main.18dd7c58.js.map": "/porto-yithro-revamp/static/js/main.18dd7c58.js.map",
+    "main.fc62572e.css.map": "/porto-yithro-revamp/static/css/main.fc62572e.css.map",
+    "main.d69b6e33.js.map": "/porto-yithro-revamp/static/js/main.d69b6e33.js.map",
     "453.32e10078.chunk.js.map": "/porto-yithro-revamp/static/js/453.32e10078.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ebb5daa5.css",
-    "static/js/main.18dd7c58.js"
+    "static/css/main.fc62572e.css",
+    "static/js/main.d69b6e33.js"
   ]
 }
