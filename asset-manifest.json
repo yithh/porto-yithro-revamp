@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/porto-yithro-revamp/static/css/main.fc62572e.css",
-    "main.js": "/porto-yithro-revamp/static/js/main.d69b6e33.js",
+    "main.js": "/porto-yithro-revamp/static/js/main.a580ea75.js",
     "static/js/453.32e10078.chunk.js": "/porto-yithro-revamp/static/js/453.32e10078.chunk.js",
     "static/media/profpic.png": "/porto-yithro-revamp/static/media/profpic.678e1a17ba7c83a85c01.png",
     "static/media/Leadership.png": "/porto-yithro-revamp/static/media/Leadership.5044be60b1197477473d.png",
@@ -12,11 +12,11 @@
     "static/media/Organizing.png": "/porto-yithro-revamp/static/media/Organizing.20c71a3463142a4148de.png",
     "index.html": "/porto-yithro-revamp/index.html",
     "main.fc62572e.css.map": "/porto-yithro-revamp/static/css/main.fc62572e.css.map",
-    "main.d69b6e33.js.map": "/porto-yithro-revamp/static/js/main.d69b6e33.js.map",
+    "main.a580ea75.js.map": "/porto-yithro-revamp/static/js/main.a580ea75.js.map",
     "453.32e10078.chunk.js.map": "/porto-yithro-revamp/static/js/453.32e10078.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fc62572e.css",
-    "static/js/main.d69b6e33.js"
+    "static/js/main.a580ea75.js"
   ]
 }
