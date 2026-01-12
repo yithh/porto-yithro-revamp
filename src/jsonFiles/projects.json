@@ -1,0 +1,417 @@
+[
+  {
+    "thumbnail": "https://i.imgur.com/3arpbTH.png",
+    "skills": [
+      {
+        "parent": "Technical",
+        "details": ["ReactJS", "GitHub", "Figma", "Tailwind CSS"]
+      },
+      {
+        "parent": "Organizing",
+        "details": ["Time Management", "Project Scheduling"]
+      },
+      {
+        "parent": "Thinking",
+        "details": ["Application Thinking", "Analytical Thinking"]
+      },
+      {
+        "parent": "Communication",
+        "details": ["Active Listening"]
+      },
+      {
+        "parent": "Language",
+        "details": ["English"]
+      }
+    ],
+    "title": "Portfolio Website",
+    "description": "My first ReactJS project featuring project filtering and a contact page. This project The challenge was not only learning about ReactJS, but I also learned how to host my developed website using GitHub.",
+    "githubLink": "https://github.com/yithh/porto-yithro",
+    "figmaLink": "https://www.figma.com/proto/ZYNEOnXl9Sv2sBQGmEAPb2/ADAmin?node-id=95-4&t=cT0dgIKUacZ5uPaK-0&scaling=scale-down&page-id=15%3A2&starting-point-node-id=95%3A4",
+    "documentationLink": "https://www.figma.com/design/ZYNEOnXl9Sv2sBQGmEAPb2/ADAmin?node-id=148-16&node-type=canvas&t=BpoFhulH5QWVkC5C-0",
+    "webLink": "https://yithh.github.io/porto-yithro/",
+    "status": "Done",
+    "date": "(2024-06-01)"
+  },
+  {
+    "thumbnail": "https://i.imgur.com/EiInumB.png",
+    "skills": [
+      {
+        "parent": "Technical",
+        "details": ["Figma", "UI/UX Design", "HTML", "CSS", "JavaScript", "GitHub"]
+      },
+      {
+        "parent": "Language",
+        "details": ["English"]
+      },
+      {
+        "parent": "Thinking",
+        "details": ["Application Thinking"]
+      },
+      {
+        "parent": "Communication",
+        "details": ["Active Listening"]
+      }
+    ],
+    "title": "WatcHGoods",
+    "description": "My first implementation from design until execution. I made a watch store's homepage, challenging myself to craft an intuitive interface to elevate user interaction.",
+    "githubLink": "https://github.com/yithh/WatcHGoods",
+    "status": "Done",
+    "date": "(2023-06-28)"
+  },
+  {
+    "thumbnail": "https://i.imgur.com/nKFp9zp.png",
+    "skills": [
+      {
+        "parent": "Technical",
+        "details": ["Android Development", "Firebase", "Java", "GitHub"]
+      },
+      {
+        "parent": "Thinking",
+        "details": ["Critical Thinking", "Problem Solving", "Application Thinking", "Analytical Thinking"]
+      },
+      {
+        "parent": "Communication",
+        "details": ["Active Listening"]
+      },
+      {
+        "parent": "Language",
+        "details": ["English"]
+      }
+    ],
+    "title": "Mathics",
+    "description": "My first mobile Android development project, a calculator for volume and area of various figures. I encountered challenges integrating Firebase for login-register functionality. After this project, I learned more about Firebase and its applications.",
+    "githubLink": "https://github.com/yithh/Mathics",
+    "status": "Done",
+    "date": "(2023-05-10)"
+  },
+  {
+    "thumbnail": "https://i.imgur.com/xxx9XL0.png",
+    "skills": [
+      {
+        "parent": "Technical",
+        "details": ["Figma"]
+      },
+      {
+        "parent": "Organizing",
+        "details": ["Time Management", "Project Scheduling"]
+      },
+      {
+        "parent": "Thinking",
+        "details": ["Critical Thinking", "Problem Solving", "Application Thinking"]
+      },
+      {
+        "parent": "Communication",
+        "details": ["Active Listening"]
+      },
+      {
+        "parent": "Language",
+        "details": ["English"]
+      }
+    ],
+    "title": "Calm",
+    "description": "My first Figma project to design a mental health app for consulting with professionals. I challenged myself to craft a functional and intuitive interface to enhance the user experience.",
+    "figmaLink": "https://www.figma.com/proto/nbusJIFBcu0PkPalw1naRa/HCI-Mid-Exam---Calm-App---Yithro-Paulus-Tjendra?node-id=48-28&t=65Fi44E9BKMyg9P8-0&scaling=scale-down&page-id=0%3A1&starting-point-node-id=48%3A117",
+    "status": "Done",
+    "date": "(2023-02-29)"
+  },
+  {
+    "thumbnail": "https://i.imgur.com/CI74fNL.png",
+    "skills": [
+      {
+        "parent": "Technical",
+        "details": ["Figma", "UI/UX Design"]
+      },
+      {
+        "parent": "Organizing",
+        "details": ["Collaboration", "Time Management", "Google Workspace"]
+      },
+      {
+        "parent": "Thinking",
+        "details": ["Critical Thinking", "Problem Solving", "Application Thinking"]
+      },
+      {
+        "parent": "Communication",
+        "details": ["Active Listening"]
+      },
+      {
+        "parent": "Language",
+        "details": ["English"]
+      }
+    ],
+    "title": "BookHub",
+    "description": "My second Figma project. I collaborated with my teammate to design a website-based library. The challenge was merging different ideas into a cohesive design.",
+    "figmaLink": "https://www.figma.com/proto/qucRzU8bYuBQrZ5CcxGpht/HCI-Book-Hub?node-id=34-249&starting-point-node-id=34%3A249&scaling=scale-down",
+    "documentationLink": "https://www.figma.com/design/qucRzU8bYuBQrZ5CcxGpht/HCI-Book-Hub?node-id=0-1&t=d2kgLVDfnD04usN7-1",
+    "status": "Done",
+    "date": "(2023-06-20)"
+  },
+  {
+    "thumbnail": "https://i.imgur.com/GiSmypr.jpeg",
+    "skills": [
+      {
+        "parent": "Organizing",
+        "details": ["Event Management", "Collaboration", "Time Management", "Google Workspace", "ClickUp"]
+      },
+      {
+        "parent": "Thinking",
+        "details": ["Critical Thinking", "Problem Solving", "Analytical Thinking"]
+      },
+      {
+        "parent": "Communication",
+        "details": ["Public Speaking", "Persuasion", "Active Listening"]
+      },
+      {
+        "parent": "Language",
+        "details": ["English"]
+      }
+    ],
+    "title": "BNCC Techno Talk I 2022",
+    "description": "Collaborated with my event committee to prepare and oversee the event, ensuring everything ran smoothly. Despite preparation challenges, we succeeded on the event day.",
+    "documentationLink": "https://drive.google.com/drive/folders/1OqFNFnpVTrLkraV7L1bTH7KaIoQ4kVTJ?usp=drive_link",
+    "status": "Done",
+    "date": "(2022-12-23)"
+  },
+  {
+    "thumbnail": "https://i.imgur.com/GiRFGlV.png",
+    "skills": [
+      {
+        "parent": "Organizing",
+        "details": ["Conflict Resolution","Time Management", "Event Planning", "Event Management", "Resource Allocation", "Quality Control", "Google Workspace", "ClickUp"]
+      },
+      {
+        "parent": "Thinking",
+        "details": ["Critical Thinking", "Problem Solving"]
+      },
+      {
+        "parent": "Communication",
+        "details": ["Public Speaking", "Negotiation"]
+      },
+      {
+        "parent": "Leadership",
+        "details": ["Team Management", "Delegation", "Decision Making", "Motivation", "Conflict Management"]
+      },
+      {
+        "parent": "Language",
+        "details": ["English"]
+      }
+    ],
+    "title": "BNCC Techno Talk II 2023",
+    "description": "Led and collaborated with my event staff to ensure the event ran smoothly. We faced many challenges, but we succeeded on the event day.",
+    "documentationLink": "https://drive.google.com/drive/folders/1TxatE-ljkcpUnHcmKRwBkg052tEpJzGp?usp=drive_link",
+    "status": "Done",
+    "date": "(2023-05-13)"
+  },
+  {
+    "thumbnail": "https://i.imgur.com/qhdGB89.png",
+    "skills": [
+      {
+        "parent": "Organizing",
+        "details": ["Conflict Resolution","Time Management", "Event Planning", "Event Management", "Google Workspace", "ClickUp"]
+      },
+      {
+        "parent": "Thinking",
+        "details": ["Critical Thinking", "Problem Solving"]
+      },
+      {
+        "parent": "Communication",
+        "details": ["Public Speaking", "Negotiation"]
+      },
+      {
+        "parent": "Language",
+        "details": ["English"]
+      }
+    ],
+    "title": "BNCC CSR 2023",
+    "description": "Collaborated with event staff and acted as the MC. This was one of the most participated events in 2023, with 1000+ attendees. We faced challenges, but we succeeded.",
+    "documentationLink": "https://drive.google.com/drive/folders/1Tn7TQ9fz7Vg3dpsDg8pfmby7Jdrb42VZ?usp=drive_link",
+    "status": "Done",
+    "date": "(2023-10-14)"
+  },
+  {
+    "thumbnail": "https://i.imgur.com/Ze0E7tf.png",
+    "skills": [
+      {
+        "parent": "Organizing",
+        "details": ["Conflict Resolution","Time Management", "Event Planning", "Event Management", "Resource Allocation", "Quality Control", "Proposal Writing","Google Workspace", "ClickUp"]
+      },
+      {
+        "parent": "Thinking",
+        "details": ["Critical Thinking", "Problem Solving"]
+      },
+      {
+        "parent": "Communication",
+        "details": ["Public Speaking", "Negotiation"]
+      },
+      {
+        "parent": "Leadership",
+        "details": ["Team Management", "Delegation", "Decision Making", "Motivation", "Conflict Management"]
+      },
+      {
+        "parent": "Language",
+        "details": ["English"]
+      }
+    ],
+    "title": "BNCC Techno Talk 2024",
+    "description": "Led and collaborated with my event staff to ensure the event ran smoothly. We faced many challenges, but we succeeded on the event day.",
+    "documentationLink": "https://drive.google.com/drive/folders/1WDDSfo1U7sQzYhGL2BAf5JzaspN5vWPx?usp=drive_link",
+    "status": "Done",
+    "date": "(2024-01-05)"
+  },
+  {
+    "thumbnail": "https://i.imgur.com/i9jJ8y8.png",
+    "skills": [
+      {
+        "parent": "Organizing",
+        "details": ["Conflict Resolution","Time Management", "Event Planning", "Event Management", "Resource Allocation", "Quality Control", "Proposal Writing", "Google Workspace", "ClickUp"]
+      },
+      {
+        "parent": "Thinking",
+        "details": ["Critical Thinking", "Problem Solving", "Application Thinking", "Analytical Thinking"]
+      },
+      {
+        "parent": "Communication",
+        "details": ["Public Speaking", "Negotiation", "Active Listening", "Persuasion", "Presentation Skills"]
+      },
+      {
+        "parent": "Leadership",
+        "details": ["Team Management", "Delegation", "Decision Making", "Motivation"]
+      },
+      {
+        "parent": "Technical",
+        "details": ["Figma"]
+      },
+      {
+        "parent": "Language",
+        "details": ["English"]
+      }
+    ],
+    "title": "TechnoScape BNCC 2024",
+    "description": "Led and collaborated the biggest event in BNCC with my coordinators and their staffs to ensure the event ran smoothly. The event consist of 3 sub-events, and we faced many challenges, but we succeeded.",
+    "documentationLink": "https://drive.google.com/drive/folders/1fpI77PenE5iLS4u9MhUsvxCbk_JDCrI9?usp=drive_link",
+    "status": "Done",
+    "date": "(2024-06-20)"
+  },
+  {
+    "thumbnail": "https://i.imgur.com/htIBKLb.png",
+    "skills": [
+      {
+        "parent": "Technical",
+        "details": ["Java", "GitHub", "Figma", "Android Development", "Firebase", "Android Studio"]
+      },
+      {
+        "parent": "Thinking",
+        "details": ["Critical Thinking", "Problem Solving", "Application Thinking", "Analytical Thinking"]
+      },
+      {
+        "parent": "Communication",
+        "details": ["Active Listening"]
+      },
+      {
+        "parent": "Language",
+        "details": ["English"]
+      }
+    ],
+    "title": "Synxpense",
+    "description": "A personal project that I developed to help users manage their expenses. I encountered challenges integrating Firebase for login-register functionality. After this project, I learned more about Firebase and its applications.",
+    "githubLink": "",
+    "documentationLink": "https://www.figma.com/design/Miuunjy5HG0Hu0ngJonxSP/Synxpense?node-id=6-5",
+    "status": "ongoing",
+    "date": ""
+  },
+  {
+    "thumbnail": "https://i.imgur.com/sSFIeH0.png",
+    "skills": [
+      {
+        "parent": "Technical",
+        "details": ["ReactJS", "GitHub", "Figma", "Tailwind CSS"]
+      },
+      {
+        "parent": "Organizing",
+        "details": ["Time Management", "Project Scheduling"]
+      },
+      {
+        "parent": "Thinking",
+        "details": ["Application Thinking", "Analytical Thinking"]
+      },
+      {
+        "parent": "Communication",
+        "details": ["Active Listening"]
+      },
+      {
+        "parent": "Language",
+        "details": ["English"]
+      }
+    ],
+    "title": "Portfolio Website Revamp",
+    "description": "The project before this one, I made the portfolio for Apple Developer Academy. Since I am no longer there, I decided to make a new one for my personal use. I added new features, such as project filtering based on skill, skill wheel, and change the project card design.",
+    "githubLink": "https://github.com/yithh/porto-yithro-revamp",
+    "figmaLink": "https://www.figma.com/proto/SdZGsrsjmzYpzor2QYryZC/Porto-Yithro-Revamp?page-id=15%3A2&node-id=95-4&node-type=canvas&t=AtexJQNyc1Je0PJY-0&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=95%3A4",
+    "documentationLink": "https://www.figma.com/design/SdZGsrsjmzYpzor2QYryZC/Porto-Yithro-Revamp?node-id=2001-16&node-type=canvas&t=TDOyDtJsFqdpqnHx-0",
+    "webLink": "https://yithh.github.io/porto-yithro-revamp/",
+    "status": "Done",
+    "date": "(2024-10-10)"
+  },
+  {
+    "thumbnail": "https://i.imgur.com/McpLO48.png",
+    "skills": [
+      {
+        "parent": "Technical",
+        "details": ["ReactJS", "GitHub", "Figma", "Tailwind CSS"]
+      },
+      {
+        "parent": "Organizing",
+        "details": ["Time Management", "Project Scheduling"]
+      },
+      {
+        "parent": "Thinking",
+        "details": ["Application Thinking", "Analytical Thinking"]
+      },
+      {
+        "parent": "Communication",
+        "details": ["Active Listening"]
+      },
+      {
+        "parent": "Language",
+        "details": ["English"]
+      }
+    ],
+    "title": "Indosine",
+    "description": "A team project to create a website that helps users finds Indonesian cuisine recipes based on the ingredients they have. I was responsible for the front-end development, and I learned how to collaborate with others to create a cohesive design.",
+    "githubLink": "https://github.com/yithh/indosine",
+    "documentationLink": "https://www.figma.com/design/hqqEb0nrPArTgQGf32lEGv/Indosine?node-id=0-1&t=g7EKjhmxIpbgyHEA-1",
+    "status": "Done",
+    "date": "(2024-06-01)"
+  },
+  {
+    "thumbnail":"https://i.imgur.com/7PxY7KH_d.webp?maxwidth=1520&fidelity=grand",
+    "skills": [
+      {
+        "parent": "Technical",
+        "details": ["Figma", "ReactJS", "Python", "Machine Learning", "Flask"]
+      },
+      {
+        "parent": "Language",
+        "details": ["English"]
+      },
+      {
+        "parent": "Thinking",
+        "details": ["Application Thinking", "Analytical Thinking"]
+      },
+      {
+        "parent": "Communication",
+        "details": ["Active Listening"]
+      },
+      {
+        "parent": "Organizing",
+        "details": ["Project Scheduling", "Time Management"]
+      }
+    ],
+    "title": "Quotify",
+    "description": "A machine learning project of me and my partner to predict the user's feeling based on their story then we give them a quote that suits their feeling. I was responsible for the front-end development and machine learning, and I learned how to collaborate with others to create a cohesive design.",
+    "githubLink": "https://github.com/yithh/quotify",
+    "figmaLink": "https://www.figma.com/proto/vU5nRr3hSFuVNyiIr6re2z?node-id=0-1&t=Cihp9d5QLDCt766r-6",
+    "documentationLink": "https://www.figma.com/design/vU5nRr3hSFuVNyiIr6re2z/Machine-Learning---Quotify?node-id=0-1&t=KBhkwcV0TUtwviLE-1",
+    "status": "Done",
+    "date": "(2024-06-17)"
+  }
+]

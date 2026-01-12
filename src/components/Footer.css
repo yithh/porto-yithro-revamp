@@ -1,0 +1,15 @@
+.social-link {
+    font-size: 40px;
+    color: #F5F5F5;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.social-link:hover {
+    color: #F5F5F5;
+    transform: scale(1.03);
+}
+
+.social-link:active {
+    transform: scale(0.97);
+    color:#FF6347;
+}

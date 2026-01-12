@@ -1,0 +1,28 @@
+@keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .animate-bounce {
+    animation: bounce 1s infinite;
+  }
+
+@media (max-width: 768px) {
+
+  .lang-change {
+    font-size: 1.5em;
+  }
+
+  .margin-change {
+    margin-bottom: 0px;
+    height: 2.7rem;
+  }
+
+  .h-screen{
+    height: 650px;
+  }
+}
