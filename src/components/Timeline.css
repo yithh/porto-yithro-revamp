@@ -1,0 +1,157 @@
+/* Timeline visual polish */
+
+.timeline-axis {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(217,108,6,0.0) 0%,
+    rgba(217,108,6,0.35) 15%,
+    rgba(217,108,6,0.5) 30%,
+    rgba(102,102,102,0.5) 50%,
+    rgba(217,108,6,0.5) 70%,
+    rgba(217,108,6,0.35) 85%,
+    rgba(217,108,6,0.0) 100%
+  );
+  filter: drop-shadow(0 0 6px rgba(217,108,6,0.35));
+}
+
+.timeline-axis.right {
+  left: auto;
+  right: 8%;
+  transform: none;
+}
+
+/* Left-aligned axis for minimal timeline */
+.timeline-axis.left {
+  left: 20px;
+  transform: none;
+}
+
+/* Absolute-positioned dot aligned with the title row */
+.timeline-dot-abs {
+  position: absolute;
+  left: 12px;
+  top: 10px;
+}
+
+.timeline-card {
+  position: relative;
+  backdrop-filter: saturate(110%);
+  overflow: hidden;
+}
+
+.timeline-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem; /* match rounded-lg */
+  pointer-events: none;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.08) inset;
+}
+
+/* Subtle top accent bar */
+.timeline-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(217,108,6,0.9), rgba(102,102,102,0.35));
+}
+
+/* Dot with glow */
+.timeline-dot {
+  height: 20px;
+  width: 20px;
+  border-radius: 9999px;
+  background: #181B19; /* button-bg fallback */
+  border: 4px solid #0b0d0c; /* dark ring */
+  z-index: 10;
+  box-shadow: 0 0 0 4px rgba(217,108,6,0.25);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.timeline-dot-ping {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border-radius: 9999px;
+  background: rgba(217,108,6,0.45);
+  animation: timeline-ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes timeline-ping {
+  0% { transform: translateZ(0) scale(1); opacity: 0.8; }
+  80%, 100% { transform: translateZ(0) scale(2); opacity: 0; }
+}
+
+/* Hover glow when hovering the item */
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.06);
+  box-shadow: 0 0 0 6px rgba(217,108,6,0.35);
+}
+
+/* Connector to card */
+.timeline-connector {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 2px;
+  width: 64px; /* ~w-16 */
+  background: linear-gradient(90deg, rgba(217,108,6,0.6), rgba(102,102,102,0.5));
+}
+
+.timeline-connector.from-left { left: calc(50% + 10px); }
+.timeline-connector.from-right { right: calc(50% + 10px); transform: translateY(-50%) rotate(180deg); }
+
+/* Icon bubble */
+.timeline-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #181B19;
+  color: #F5F5F5;
+  box-shadow: 0 0 0 2px rgba(217,108,6,0.35);
+}
+
+/* Period pill */
+.timeline-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: rgba(24,27,25,0.9);
+  color: #F5F5F5;
+  font-size: 12px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Chips */
+.timeline-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  background: #1A1D1B;
+  color: #F5F5F5;
+  font-size: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Hover zoom for bullet list items */
+.timeline-bullet {
+  transition: transform 120ms ease, color 120ms ease;
+  transform-origin: left center;
+}
+.timeline-bullet:hover {
+  transform: translateX(2px) scale(1.02);
+}

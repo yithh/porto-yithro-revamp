@@ -8,6 +8,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Skills from './components/Skills';
+import Experience from './components/Experience';
 import Admin from './pages/Admin';
 import { db } from './firebase';
 import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
@@ -34,6 +35,7 @@ function Home({ projects }) {
       <Hero />
       <About />
       <Skills />
+      <Experience />
       <Projects projects={projects} />
       <Contact />
       <Footer />

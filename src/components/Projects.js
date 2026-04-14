@@ -4,6 +4,7 @@ import { skillHex } from '../constants/skillColors';
 
 const Projects = ({ projects }) => {
   const [selectedFilters, setSelectedFilters] = useState([]);
+  const [activeSection, setActiveSection] = useState('Technical');
 
   const skillsList = ['Communication', 'Leadership', 'Thinking', 'Organizing', 'Technical', 'Language'];
 
@@ -23,25 +24,36 @@ const Projects = ({ projects }) => {
     setSelectedFilters([]);
   };
 
+  const getCategory = (project) => (
+    project.skills && Array.isArray(project.skills)
+      ? (project.skills.some((skill) => skill.parent === 'Technical') ? 'Technical' : 'Other Experience')
+      : 'Other Experience'
+  );
+
+  const sectionFilteredProjects = projects.filter((project) => getCategory(project) === activeSection);
+
   const filteredProjects = selectedFilters.length === 0
-    ? projects
-    : projects.filter((project) =>
+    ? sectionFilteredProjects
+    : sectionFilteredProjects.filter((project) =>
         selectedFilters.every((filter) =>
           project.skills.some(skill => skill.parent === filter || skill.details.includes(filter))
         )
       );
 
-  // Sort projects by date
-  const sortedProjects = filteredProjects.sort((a, b) => {
-    if (!a.date && b.date) {
-      return -1; // a has an empty date, b does not, so a comes first
-    }
-    if (a.date && !b.date) {
-      return 1; // b has an empty date, a does not, so b comes first
-    }
-    const dateA = new Date(a.date.replace(/[()]/g, '')); // Remove parentheses and convert to Date
-    const dateB = new Date(b.date.replace(/[()]/g, ''));
-    return dateB - dateA; // Sort in descending order
+  // Sort projects by date (latest first). Empty/invalid dates go last.
+  const sortedProjects = filteredProjects.slice().sort((a, b) => {
+    const parse = (val) => {
+      if (!val) return null;
+      const cleaned = String(val).replace(/[()]/g, '');
+      const d = new Date(cleaned);
+      return isNaN(d) ? null : d;
+    };
+    const da = parse(a.date);
+    const db = parse(b.date);
+    if (da && db) return db - da; // both valid -> desc
+    if (da && !db) return -1;     // a valid, b not -> a first
+    if (!da && db) return 1;      // b valid, a not -> b first
+    return 0;                     // both invalid -> keep order
   });
 
   // Helper function to limit skills for the front card
@@ -91,8 +103,26 @@ const Projects = ({ projects }) => {
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-overpass md:mb-6 font-black">Projects</h2>
 
+        {/* Category navigation */}
+        <div className="filter-buttons mb-4">
+          <button
+            type="button"
+            className={`rounded-md filter-button button-hover-effect ${activeSection === 'Technical' ? 'active' : ''}`}
+            onClick={() => { setActiveSection('Technical'); setOpenCardIndex(null); }}
+          >
+            Technical
+          </button>
+          <button
+            type="button"
+            className={`rounded-md filter-button button-hover-effect ${activeSection === 'Other Experience' ? 'active' : ''}`}
+            onClick={() => { setActiveSection('Other Experience'); setOpenCardIndex(null); }}
+          >
+            Other Experience
+          </button>
+        </div>
+
         {/* Filter buttons */}
-        <div className="scale-[.7] md:scale-[.8] xl:scale-100 filter-buttons">
+        <div className="filter-buttons">
           <label className={`rounded-md filter-button button-hover-effect ${selectedFilters.length === 0 ? 'active' : ''}`}>
             <input
               type="checkbox"
@@ -127,7 +157,7 @@ const Projects = ({ projects }) => {
                 className={`flip-card w-full max-w-md ${openCardIndex === index ? 'open' : ''}`}
                 onClick={() => handleCardClick(index)}
               >
-                <div className="flip-card-inner w-[392px]">
+                <div className="flip-card-inner w-full">
                   <div className="flip-card-front">
                     <div className="thumbnail-container">
                       <img
@@ -144,12 +174,12 @@ const Projects = ({ projects }) => {
                         ? `Done, ${project.date}`
                         : 'On Going'}
                     </p>
-                    <div className="scale-[.8] xl:scale-100 skill-grid mt-6 border-t-2 border-black mx-6 pt-2">
+                    <div className="skill-grid mt-6 border-t-2 border-black mx-3 sm:mx-6 pt-2">
                       {/* Display up to 8 skills */}
                       {displayedSkills.map((skillGroup, index) => (
                         <span
                           key={index}
-                          className="scale-[.9] xl:scale-100 skill-tag"
+                          className="skill-tag"
                           style={{ backgroundColor: skillHex[skillGroup.parent] || '#ccc', color: '#fff' }}
                         >
                           {skillGroup.details[0]}
@@ -157,13 +187,13 @@ const Projects = ({ projects }) => {
                       ))}
                       {/* Show "and more..." if there are more than 8 skills */}
                       {showAndMore && (
-                        <span className="scale-[.9] xl:scale-100 skill-tag and-more-tag" style={{ backgroundColor: moreColor, color: '#000' }}>and more...</span>
+                        <span className="skill-tag and-more-tag" style={{ backgroundColor: moreColor, color: '#000' }}>and more...</span>
                       )}
                     </div>
                   </div>
-                  <div className="scale-[.9] xl:scale-100 flip-card-back">
+                  <div className="flip-card-back">
                     <h3 className="text-xl md:text-2xl xl:text-3xl font-bold border-b-2 mb-2 mt-2 px-2">{project.title}</h3>
-                    <div className="scale-[.8] xl:scale-100 skill-grid-back">
+                    <div className="skill-grid-back">
                       {project.skills.map((skillGroup) =>
                         skillGroup.details.map((subSkill) => (
                           <span
@@ -180,13 +210,13 @@ const Projects = ({ projects }) => {
                       <p className='text-lg mb-2 font-bold underline underline-offset-2'>Description:</p>
                       {project.description}
                     </div>
-                    <div className='scale-[.8] md:scale-90 lg:scale-100 flex flex-wrap gap-2 my-2 justify-center text-sm'>
+                    <div className='flex flex-wrap gap-2 my-2 justify-center text-sm px-3 pb-1 w-full'>
                       {project.githubLink && (
                         <a
                           href={project.githubLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="h-10 w-40 bg-button-bg text-text-color py-2 px-4 rounded block text-center button-hover-effect"
+                          className="h-10 w-full sm:w-40 bg-button-bg text-text-color py-2 px-4 rounded block text-center button-hover-effect"
                         >
                           View GitHub
                         </a>
@@ -196,7 +226,7 @@ const Projects = ({ projects }) => {
                           href={project.figmaLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="h-10 w-40 bg-button-bg text-text-color py-2 px-4 rounded block text-center button-hover-effect"
+                          className="h-10 w-full sm:w-40 bg-button-bg text-text-color py-2 px-4 rounded block text-center button-hover-effect"
                         >
                           View Prototype
                         </a>
@@ -206,7 +236,7 @@ const Projects = ({ projects }) => {
                           href={project.documentationLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="h-10 w-40 bg-button-bg text-text-color py-2 px-4 rounded block text-center button-hover-effect"
+                          className="h-10 w-full sm:w-40 bg-button-bg text-text-color py-2 px-4 rounded block text-center button-hover-effect"
                         >
                           View Documents
                         </a>
@@ -216,9 +246,9 @@ const Projects = ({ projects }) => {
                           href={project.webLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="h-10 w-40 bg-button-bg text-text-color py-2 px-4 rounded block text-center button-hover-effect"
+                          className="h-10 w-full sm:w-40 bg-button-bg text-text-color py-2 px-4 rounded block text-center button-hover-effect"
                         >
-                          View Demo
+                          Demo (App)
                         </a>
                       )}
                     </div>

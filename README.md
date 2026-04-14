@@ -65,6 +65,29 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
+## Environment Setup (Firebase)
+
+This app reads Firebase config from environment variables. To keep local and GitHub Pages builds consistent, create the following files based on the provided examples:
+
+- Copy `.env.development.example` to `.env.development` for `npm start`.
+- Copy `.env.production.example` to `.env.production` for `npm run build` / `npm run deploy`.
+
+Populate these keys with your Firebase project values:
+
+- `REACT_APP_FIREBASE_API_KEY`
+- `REACT_APP_FIREBASE_AUTH_DOMAIN`
+- `REACT_APP_FIREBASE_PROJECT_ID`
+- `REACT_APP_FIREBASE_STORAGE_BUCKET`
+- `REACT_APP_FIREBASE_MESSAGING_SENDER`
+- `REACT_APP_FIREBASE_APP_ID`
+
+Then rebuild and deploy:
+
+```bash
+npm run build
+npm run deploy
+```
+
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

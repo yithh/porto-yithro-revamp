@@ -69,6 +69,8 @@ const NavBar = () => {
             ) : (
               <button onClick={() => goHomeAndHash('#about')} className="relative cursor-pointer font-overpass nav-link transition-transform duration-200">About Me</button>
             )}
+            
+            {/* Education removed */}
             {onHome ? (
             <ScrollLink 
               to="skills" 
@@ -82,6 +84,21 @@ const NavBar = () => {
             </ScrollLink>
             ) : (
               <button onClick={() => goHomeAndHash('#skills')} className="relative cursor-pointer font-overpass nav-link transition-transform duration-200">Skills</button>
+            )}
+
+            {onHome ? (
+            <ScrollLink 
+              to="experience" 
+              smooth={true} 
+              duration={500}
+              offset={-80}
+              className="relative cursor-pointer font-overpass nav-link transition-transform duration-200"
+              activeClass="active"
+            >
+              Experience
+            </ScrollLink>
+            ) : (
+              <button onClick={() => goHomeAndHash('#experience')} className="relative cursor-pointer font-overpass nav-link transition-transform duration-200">Experience</button>
             )}
             {onHome ? (
             <ScrollLink 
@@ -146,6 +163,22 @@ const NavBar = () => {
           )}
           {onHome ? (
           <ScrollLink 
+            to="experience" 
+            smooth={true} 
+            duration={500}
+            offset={-80}
+            className="block py-2 cursor-pointer font-overpass nav-link" 
+            onClick={toggleMenu}
+            activeClass="active"
+          >
+            Experience
+          </ScrollLink>
+          ) : (
+            <button onClick={() => { toggleMenu(); goHomeAndHash('#experience'); }} className="block py-2 cursor-pointer font-overpass nav-link">Experience</button>
+          )}
+          {/* Education removed from mobile menu */}
+          {onHome ? (
+          <ScrollLink 
             to="skills" 
             smooth={true} 
             duration={500}
@@ -189,20 +222,22 @@ const NavBar = () => {
           ) : (
             <button onClick={() => { toggleMenu(); goHomeAndHash('#contact'); }} className="block py-2 cursor-pointer font-overpass nav-link">Contact Me</button>
           )}
-          {isAdmin && (
-            <button onClick={() => { toggleMenu(); goAdmin(); }} className="block py-2 cursor-pointer font-overpass bg-button-bg text-white rounded">
-              Admin
-            </button>
-          )}
-          {!user ? (
-            <button onClick={() => { toggleMenu(); login(); }} className="block py-2 cursor-pointer font-overpass bg-button-bg text-white rounded">
-              Login
-            </button>
-          ) : (
-            <button onClick={() => { toggleMenu(); logout(); }} className="block py-2 cursor-pointer font-overpass bg-red-600 hover:bg-red-700 text-white rounded">
-              Logout
-            </button>
-          )}
+          <div className="mobile-auth-group">
+            {isAdmin && (
+              <button onClick={() => { toggleMenu(); goAdmin(); }} className="mobile-auth-button block py-2 cursor-pointer font-overpass bg-button-bg text-white rounded">
+                Admin
+              </button>
+            )}
+            {!user ? (
+              <button onClick={() => { toggleMenu(); login(); }} className="mobile-auth-button block py-2 cursor-pointer font-overpass bg-button-bg text-white rounded">
+                Login
+              </button>
+            ) : (
+              <button onClick={() => { toggleMenu(); logout(); }} className="mobile-auth-button block py-2 cursor-pointer font-overpass bg-red-600 hover:bg-red-700 text-white rounded">
+                Logout
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </nav>

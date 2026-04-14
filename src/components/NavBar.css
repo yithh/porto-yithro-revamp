@@ -90,6 +90,18 @@
   max-height: 500px;
 }
 
+.mobile-auth-group {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.mobile-auth-button {
+  width: 100%;
+  text-align: right;
+  padding-right: 0.75rem;
+}
+
 /* Main content adjustment */
 .main-content {
   padding-top: 80px;

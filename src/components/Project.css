@@ -1,8 +1,9 @@
 .flip-card {
   background-color: transparent;
   perspective: 1000px;
-  width: 290px;
-  height: 400px;
+  width: 100%;
+  max-width: 340px;
+  height: 430px;
   position: relative;
   flex: content;
   cursor: pointer;
@@ -12,6 +13,7 @@
   .flip-card {
     height: 475px;
     width: 100%;
+    max-width: 392px;
   }
 }
 
@@ -115,7 +117,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 5px;
-  max-height: 115px;
+  max-height: 125px;
   overflow: auto;
 }
 
@@ -127,7 +129,7 @@
 }
 
 .skill-tag {
-  font-size: 9px;
+  font-size: 10px;
   overflow: hidden;
   text-overflow: ellipsis;
   border-radius: 5px;
@@ -136,8 +138,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100px;
-  height: 25px;
+  width: 100%;
+  min-width: 0;
+  min-height: 25px;
+  height: auto;
+  padding: 4px 6px;
 }
 
 .button-hover-effect {
@@ -285,11 +290,13 @@
 }
 
 .skill-tag {
-  padding: 6px 10px;
-  margin: 5px;
+  padding: 4px 6px;
+  margin: 0;
   border-radius: 5px;
   color: #fff;
   font-weight: 600;
+  width: 100%;
+  min-height: 25px;
 }
 
 /* Scrollbar Styling */
@@ -316,12 +323,49 @@
   z-index: 1;
 }
 
+@media (max-width: 640px) {
+  .flip-card {
+    max-width: 100%;
+    height: 440px;
+  }
+
+  .thumbnail-container {
+    max-height: 190px;
+  }
+
+  .filter-buttons {
+    gap: 0.35rem;
+    margin-bottom: 14px;
+  }
+
+  .filter-button {
+    padding: 8px 12px;
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .skill-grid,
+  .skill-grid-back {
+    gap: 4px;
+  }
+
+  .skill-tag {
+    font-size: 8px;
+    min-height: 22px;
+  }
+
+  .status-button {
+    margin-bottom: -4px;
+    font-size: 12px;
+  }
+}
+
 @media (max-width: 768px) {
-  h3 {
+  .flip-card h3 {
     font-size: 0.97em;
   }
 
-  p {
+  .flip-card p {
     font-size: 0.97em;
   }
 

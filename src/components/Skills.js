@@ -19,7 +19,7 @@ function SkillsSection() {
   }, []);
 
   return (
-    <section id="skills" className="h-[620px] md:h-max pt-24 bg-hero-bg text-text-color overflow-hidden">
+    <section id="skills" className="pt-24 pb-14 bg-hero-bg text-text-color">
       <h2 className="text-4xl font-overpass md:mb-6 font-black">Skills</h2>
       <SkillsWheel skillsData={skillsData} />
     </section>

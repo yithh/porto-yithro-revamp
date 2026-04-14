@@ -72,6 +72,7 @@ const Admin = () => {
 
   const [skills, setSkills] = useState([]); // [{id,name,details:[]}] 
   const [projects, setProjects] = useState([]);
+  const [experiences, setExperiences] = useState([]);
 
   // Profile (details)
   const [profile, setProfile] = useState({
@@ -84,19 +85,21 @@ const Admin = () => {
   const [projectForm, setProjectForm] = useState(defaultProject);
   const [editingProjectId, setEditingProjectId] = useState(null);
 
-  const [activeTab, setActiveTab] = useState('details'); // 'details' | 'skills' | 'projects'
+  const [activeTab, setActiveTab] = useState('details'); // 'details' | 'skills' | 'projects' | 'experience'
 
   // Loading and update notification refs
   const skillsInitRef = useRef(false);
   const projectsInitRef = useRef(false);
   const profileInitRef = useRef(false);
+  const experienceInitRef = useRef(false);
+  
   const loadingToastId = useRef(null);
 
   
 
   useEffect(() => {
     const maybeDone = () => {
-      if (skillsInitRef.current && projectsInitRef.current && profileInitRef.current) {
+      if (skillsInitRef.current && projectsInitRef.current && profileInitRef.current && experienceInitRef.current) {
         if (loadingToastId.current) {
           toast.dismiss(loadingToastId.current);
           toast.success('Data loaded');
@@ -177,11 +180,32 @@ const Admin = () => {
       maybeDone();
     });
 
+    // Experience live
+    const expQ = query(collection(db, 'experience'), orderBy('startDate', 'desc'));
+    const unsubExperience = onSnapshot(expQ, (snapshot) => {
+      const arr = snapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
+      setExperiences(arr);
+      if (!experienceInitRef.current) {
+        experienceInitRef.current = true;
+      } else {
+        const changes = snapshot.docChanges().map((c) => c.type);
+        if (changes.length > 0) {
+          const summary = Array.from(new Set(changes)).join(', ');
+          toast.info(`Experience ${summary}`);
+        }
+      }
+      maybeDone();
+    });
+
+    // Education removed
+
     loadAbout();
     return () => {
       unsubSkills();
       unsubProjects();
       unsubProfile();
+      unsubExperience();
+      
     };
   }, []);
 
@@ -269,6 +293,8 @@ const Admin = () => {
     }
   };
 
+  // removed Imgur upload; using link-only for thumbnails
+
   const removeProject = async (id) => {
     try {
       if (!window.confirm('Delete this project?')) return;
@@ -282,6 +308,63 @@ const Admin = () => {
   };
 
   const skillParents = useMemo(() => ['Communication','Leadership','Thinking','Organizing','Technical','Language'], []);
+
+  // Experience state + helpers
+  const defaultExp = useMemo(() => ({
+    company: '',
+    role: '',
+    location: '',
+    startDate: '',
+    endDate: '',
+    description: '',
+    highlights: [],
+  }), []);
+  const [experienceForm, setExperienceForm] = useState({
+    company: '', role: '', location: '', startDate: '', endDate: '', description: '', highlights: [],
+  });
+  const [editingExpId, setEditingExpId] = useState(null);
+
+  const startEditExperience = (e) => {
+    setEditingExpId(e.id);
+    setExperienceForm({ ...defaultExp, ...e });
+  };
+  const resetExperienceForm = () => {
+    setEditingExpId(null);
+    setExperienceForm(defaultExp);
+  };
+  const saveExperience = async () => {
+    if (!experienceForm.role || !experienceForm.company) {
+      toast.error('Role and Company are required');
+      return;
+    }
+    const payload = { ...experienceForm };
+    try {
+      if (editingExpId) {
+        await updateDoc(doc(db, 'experience', editingExpId), payload);
+        toast.success('Experience updated');
+      } else {
+        await addDoc(collection(db, 'experience'), payload);
+        toast.success('Experience added');
+      }
+      resetExperienceForm();
+    } catch (e) {
+      console.error(e);
+      toast.error('Failed to save experience');
+    }
+  };
+  const removeExperience = async (id) => {
+    try {
+      if (!window.confirm('Delete this experience?')) return;
+      await deleteDoc(doc(db, 'experience', id));
+      if (editingExpId === id) resetExperienceForm();
+      toast.success('Experience deleted');
+    } catch (e) {
+      console.error(e);
+      toast.error('Failed to delete experience');
+    }
+  };
+
+  // Education removed
 
   if (!isAdmin) {
     return (
@@ -313,7 +396,7 @@ const Admin = () => {
         {/* Admin sub-navbar (sticky under header) */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-3 border-b border-gray-700 pb-2 sticky top-36 z-10 bg-gray-900">
-            {['details','skills','projects'].map((tab) => (
+            {['details','skills','projects','experience'].map((tab) => (
               <button
                 key={tab}
                 className={`px-4 py-2 rounded-t ${activeTab===tab ? 'bg-button-bg text-white' : 'bg-gray-800 text-gray-200 hover:bg-gray-700'}`}
@@ -493,7 +576,7 @@ const Admin = () => {
                     <input className="w-full p-2 rounded bg-gray-800 text-white placeholder-gray-400" placeholder="https://..." value={projectForm.documentationLink} onChange={(e) => setProjectForm({ ...projectForm, documentationLink: e.target.value })} />
                   </div>
                   <div>
-                    <label className="block text-sm text-gray-300 mb-1">Website Link</label>
+                    <label className="block text-sm text-gray-300 mb-1">Demo (App) Link</label>
                     <input className="w-full p-2 rounded bg-gray-800 text-white placeholder-gray-400" placeholder="https://..." value={projectForm.webLink} onChange={(e) => setProjectForm({ ...projectForm, webLink: e.target.value })} />
                   </div>
                 </div>
@@ -522,6 +605,85 @@ const Admin = () => {
               </div>
             </div>
           )}
+
+          {/* EXPERIENCE TAB */}
+          {activeTab === 'experience' && (
+            <div className="bg-gray-800 p-6 rounded-lg shadow-md">
+              <h3 className="text-2xl font-bold mb-3">Experience</h3>
+              <div className="overflow-x-auto">
+                <table className="min-w-full text-sm text-white">
+                  <thead>
+                    <tr className="text-center">
+                      <th className="py-2 pr-4 text-center">Role</th>
+                      <th className="py-2 pr-4 text-center">Company</th>
+                      <th className="py-2 pr-4 text-center">Period</th>
+                      <th className="py-2 pr-4 text-center">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {experiences.map((e) => (
+                      <tr key={e.id} className="border-t border-gray-700">
+                        <td className="py-2 pr-4">{e.role}</td>
+                        <td className="py-2 pr-4">{e.company}</td>
+                        <td className="py-2 pr-4">{e.startDate} {e.endDate ? `— ${e.endDate}` : ''}</td>
+                        <td className="py-2 pr-4 flex gap-2">
+                          <button onClick={() => startEditExperience(e)} className="bg-button-bg text-white py-1 px-3 rounded hover:scale-105">Edit</button>
+                          <button onClick={() => removeExperience(e.id)} className="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-400">Delete</button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="mt-6 p-4 bg-gray-700 rounded">
+                <h4 className="text-xl font-semibold mb-2">{editingExpId ? 'Edit Experience' : 'Add Experience'}</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm text-gray-300 mb-1">Role</label>
+                    <input className="w-full p-2 rounded bg-gray-800 text-white placeholder-gray-400" value={experienceForm.role} onChange={(e)=>setExperienceForm({...experienceForm, role: e.target.value})} placeholder="e.g. Software Engineer" />
+                  </div>
+                  <div>
+                    <label className="block text-sm text-gray-300 mb-1">Company</label>
+                    <input className="w-full p-2 rounded bg-gray-800 text-white placeholder-gray-400" value={experienceForm.company} onChange={(e)=>setExperienceForm({...experienceForm, company: e.target.value})} placeholder="e.g. Acme Inc." />
+                  </div>
+                  <div>
+                    <label className="block text-sm text-gray-300 mb-1">Location</label>
+                    <input className="w-full p-2 rounded bg-gray-800 text-white placeholder-gray-400" value={experienceForm.location} onChange={(e)=>setExperienceForm({...experienceForm, location: e.target.value})} placeholder="City, Country" />
+                  </div>
+                  <div>
+                    <label className="block text-sm text-gray-300 mb-1">Start Date</label>
+                    <input type="text" className="w-full p-2 rounded bg-gray-800 text-white placeholder-gray-400" value={experienceForm.startDate} onChange={(e)=>setExperienceForm({...experienceForm, startDate: e.target.value})} placeholder="YYYY-MM" />
+                  </div>
+                  <div>
+                    <label className="block text-sm text-gray-300 mb-1">End Date</label>
+                    <input type="text" className="w-full p-2 rounded bg-gray-800 text-white placeholder-gray-400" value={experienceForm.endDate} onChange={(e)=>setExperienceForm({...experienceForm, endDate: e.target.value})} placeholder="YYYY-MM or Present" />
+                  </div>
+                </div>
+                <div className="mt-3">
+                  <label className="block text-sm text-gray-300 mb-1">Description</label>
+                  <textarea className="w-full h-24 p-2 rounded bg-gray-800 text-white placeholder-gray-400" value={experienceForm.description} onChange={(e)=>setExperienceForm({...experienceForm, description: e.target.value})} placeholder="Brief description" />
+                </div>
+                <div className="mt-3">
+                  <label className="block text-sm text-gray-300 mb-1">Highlights</label>
+                  <TagInput
+                    placeholder="Add highlight and press Enter"
+                    tags={experienceForm.highlights || []}
+                    onAdd={(v)=> setExperienceForm((f)=> ({...f, highlights: [...(f.highlights||[]), v]}))}
+                    onRemove={(v)=> setExperienceForm((f)=> ({...f, highlights: (f.highlights||[]).filter((x)=>x!==v)}))}
+                  />
+                </div>
+                <div className="mt-4 flex gap-3">
+                  <button onClick={saveExperience} className="bg-button-bg text-white py-2 px-4 rounded hover:scale-105 active:scale-95">{editingExpId ? 'Update Experience' : 'Add Experience'}</button>
+                  {editingExpId && (
+                    <button onClick={resetExperienceForm} className="bg-gray-600 text-white py-2 px-4 rounded hover:bg-gray-500">Cancel</button>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Education removed */}
           </div>
         </div>
       </section>

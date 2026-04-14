@@ -55,17 +55,17 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="hero" className="h-screen flex flex-col justify-center items-center bg-hero-bg text-text-color relative">
-      <div className="text-left max-w-3xl mx-auto px-4 absolute top-1/2 transform -translate-y-1/2">
+    <section id="hero" className="hero-section min-h-screen flex flex-col justify-center items-center bg-hero-bg text-text-color relative">
+      <div className="hero-content text-left max-w-3xl mx-auto px-4 absolute top-1/2 transform -translate-y-1/2 w-full">
         <div className="mb-2 h-12 margin-change">
           <h1 className="lang-change text-4xl font-overpass font-black">{text}</h1>
         </div>
         <div className="mb-4">
-          <h2 className="text-change text-2xl font-merriweather">Check out below to know more about me!!</h2>
+          <h2 className="hero-subtitle text-change text-2xl font-merriweather">Check out below to know more about me!!</h2>
         </div>
       </div>
-      <div className="flex justify-center absolute bottom-10">
-        <Link to="about" smooth={true} duration={500} className="text-change sm:text-sm bg-button-bg text-text-color py-2 px-4 rounded cursor-pointer font-overpass animate-bounce flex items-center">
+      <div className="flex justify-center absolute bottom-6 sm:bottom-10">
+        <Link to="about" smooth={true} duration={500} className="hero-scroll-btn text-change sm:text-sm bg-button-bg text-text-color py-2 px-4 rounded cursor-pointer font-overpass animate-bounce flex items-center">
           Scroll Down
           <FontAwesomeIcon icon={faArrowDown} className="ml-2" />
         </Link>
